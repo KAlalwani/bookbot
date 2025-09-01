@@ -16,10 +16,11 @@ def main():
     else:
         file_path = sys.argv[1]
     book= get_book_text(file_path)
-    print(book)
-    print("--------------------")
+    print("============================================")
+    print(f"Analyzing book found at {file_path}")
+    print("---------------- Word Count ----------------")
     print(f"Found {count_words(book)} total words")
-    print("--------------------")
+    print("-------------- Character Count -------------")
     def sort_on(item):
         return item["num"] 
     char_list=dict_to_list(count_char(book))
