@@ -1,6 +1,7 @@
 from stats import count_words
 from stats import count_char
 from stats import dict_to_list
+import sys
 def get_book_text(file_path):
     try:
         with open(file_path) as file:
@@ -9,8 +10,11 @@ def get_book_text(file_path):
     except FileNotFoundError:
         print("File not found. Please check the path and try again.")
 def main():
-    print ("Enter the book file path: ")
-    file_path = "books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        file_path = sys.argv[1]
     book= get_book_text(file_path)
     print(book)
     print("--------------------")
